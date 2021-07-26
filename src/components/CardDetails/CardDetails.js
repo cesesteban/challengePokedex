@@ -74,8 +74,9 @@ function CardDetails({ finalColor, statePokemon, handleClose }) {
         <div className="card-detail-body" style={{borderColor: finalColor[0]}}>
           <div className="card-detail-pills-div">
             {statePokemon.types.map((type) => {
+              console.log(type)
               return (
-                <div key={type.type.name} className="card-detail-pill" style={{backgroundColor: finalColor[0]}}>
+                <div key={type.type.name} className="card-detail-pill" style={{backgroundColor: finalColor[type.slot-1]}}>
                   <p className="card-detail-pill-text">{type.type.name}</p>
                 </div>
               );
