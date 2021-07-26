@@ -1,0 +1,33 @@
+.navbar {
+  /* identical to box height, or 133% */
+  display: flex;
+  align-items: center;
+  order: 1;
+  margin: 15px;
+}
+
+.img {
+  /* Pokeball */
+  transform: rotate(38deg);
+  margin: inherit;
+}
+
+.title {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+
+  /* Dark Gray */
+  color: #212121;
+  /* Inside Auto Layout */
+  flex: none;
+
+  flex-grow: 1;
+  margin: 0px 16px;
+}
+
+.vector {
+    margin: inherit;
+}

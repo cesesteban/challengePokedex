@@ -1,0 +1,14 @@
+.cards-position {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+.pagination-button{
+    margin: 5px;
+    height: 25px;
+    width: 25px;
+}
