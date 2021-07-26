@@ -1,6 +1,7 @@
 .navbar {
   /* identical to box height, or 133% */
   display: flex;
+  justify-content: space-around;
   align-items: center;
   order: 1;
   margin: 15px;

@@ -59,7 +59,10 @@ function Cards({ stateSearch }) {
         </div>
       ) : (
         <div>
-          <Card name={stateSearch} url={`https://pokeapi.co/api/v2/pokemon/${stateSearch}`} />
+          <Card
+            name={stateSearch}
+            url={`https://pokeapi.co/api/v2/pokemon/${stateSearch}`}
+          />
         </div>
       )}
     </div>

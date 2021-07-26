@@ -1,15 +1,12 @@
 import React, { useEffect } from "react";
 import "./SearchBar.css";
 
-function SearchBar({stateSearch,setStateSearch}) {
-  
+function SearchBar({ stateSearch, setStateSearch }) {
   const onChange = (event) => {
     setStateSearch(event.target.value);
   };
 
-  useEffect(() => {
-    
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <div className="box">
@@ -22,7 +19,7 @@ function SearchBar({stateSearch,setStateSearch}) {
           id="search"
           value={stateSearch}
           onChange={onChange}
-          placeholder="Search..."
+          placeholder="Search pokemon..."
         />
       </div>
     </div>

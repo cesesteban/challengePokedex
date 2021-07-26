@@ -1,12 +1,32 @@
 import React, { useState } from "react";
 import "./CardDetails.css";
+import { makeStyles } from "@material-ui/core/styles";
 import arrowback from "../../assets/img/arrowback.png";
 import PokeballCard from "../../assets/img/PokeballCard.png";
 import weightImg from "../../assets/img/weight.png";
 import heightImg from "../../assets/img/height.png";
+import { IconButton } from "@material-ui/core";
 
+const useStyles = makeStyles((theme) => ({
+  margin: {
+    "&:hover": {
+      background: "none",
+    },
+    marginRight: "15px",
+    marginTop: "-20px",
+    marginLeft: "-60px",
+  },
+  margin2: {
+    "&:hover": {
+      background: "none",
+    },
+  },
+}));
 function CardDetails({ statePokemon, handleClose }) {
-  const [imgPosition, setImgPosition] = useState(statePokemon.sprites.front_default)
+  const classes = useStyles();
+  const [imgPosition, setImgPosition] = useState(
+    statePokemon.sprites.front_default
+  );
   return (
     <div>
       <div className="card-detail">
@@ -18,12 +38,13 @@ function CardDetails({ statePokemon, handleClose }) {
                 src={PokeballCard}
                 alt="PokeballCard"
               />
-              <img
+              <IconButton
                 onClick={handleClose}
-                className="card-detail-arrowback"
-                src={arrowback}
-                alt="arrowback"
-              />
+                className={classes.margin}
+                size="small"
+              >
+                <img src={arrowback} alt="arrowback" />
+              </IconButton>
               <p className="card-detail-name">{statePokemon.name}</p>
             </div>
             <div>
@@ -33,13 +54,21 @@ function CardDetails({ statePokemon, handleClose }) {
             </div>
           </div>
           <div className="img-position">
-            <div className="img-rotation" onClick={()=>setImgPosition(statePokemon.sprites.front_default)}>-</div>
-            <img
-              className="card-detail-img"
-              src={imgPosition}
-              alt="img"
-            />
-            <div className="img-rotation" onClick={()=>setImgPosition(statePokemon.sprites.back_default)} >-</div>
+            <IconButton
+              onClick={() => setImgPosition(statePokemon.sprites.front_default)}
+              className={classes.margin2}
+              size="small"
+            >
+              <div className="img-rotation">-</div>
+            </IconButton>
+            <img className="card-detail-img" src={imgPosition} alt="img" />
+            <IconButton
+              onClick={() => setImgPosition(statePokemon.sprites.back_default)}
+              className={classes.margin2}
+              size="small"
+            >
+              <div className="img-rotation">-</div>
+            </IconButton>
           </div>
         </div>
         <div className="card-detail-body">
