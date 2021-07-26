@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-function CardDetails({ statePokemon, handleClose }) {
+function CardDetails({ finalColor, statePokemon, handleClose }) {
   const classes = useStyles();
   const [imgPosition, setImgPosition] = useState(
     statePokemon.sprites.front_default
@@ -30,7 +30,7 @@ function CardDetails({ statePokemon, handleClose }) {
   return (
     <div>
       <div className="card-detail">
-        <div className="card-detail-header">
+        <div className="card-detail-header" style={{backgroundColor: finalColor[0]}}>
           <div className="card-detail-title">
             <div className="card-detail-arrowtitle">
               <img
@@ -71,18 +71,18 @@ function CardDetails({ statePokemon, handleClose }) {
             </IconButton>
           </div>
         </div>
-        <div className="card-detail-body">
+        <div className="card-detail-body" style={{borderColor: finalColor[0]}}>
           <div className="card-detail-pills-div">
             {statePokemon.types.map((type) => {
               return (
-                <div key={type.type.name} className="card-detail-pill">
+                <div key={type.type.name} className="card-detail-pill" style={{backgroundColor: finalColor[0]}}>
                   <p className="card-detail-pill-text">{type.type.name}</p>
                 </div>
               );
             })}
           </div>
           <div className="card-detail-about">
-            <p className="card-detail-about-title">About</p>
+            <p className="card-detail-about-title" style={{color: finalColor[0]}}>About</p>
             <div className="card-detail-about-details">
               <div className="card-detail-about-details-weight">
                 <div className="card-detail-about-details-weight-detail">
@@ -93,7 +93,7 @@ function CardDetails({ statePokemon, handleClose }) {
                     {statePokemon.weight}kg
                   </p>
                 </div>
-                <p className="card-detail-about-details-text-description">
+                <p className="card-detail-about-details-text-description" style={{color: finalColor[0]}}>
                   weight
                 </p>
               </div>
@@ -106,7 +106,7 @@ function CardDetails({ statePokemon, handleClose }) {
                     {statePokemon.height}m
                   </p>
                 </div>
-                <p className="card-detail-about-details-text-description">
+                <p className="card-detail-about-details-text-description" style={{color: finalColor[0]}}>
                   height
                 </p>
               </div>
@@ -119,7 +119,7 @@ function CardDetails({ statePokemon, handleClose }) {
                     {statePokemon.moves[1].move.name}
                   </p>
                 </div>
-                <p className="card-detail-about-details-text-description">
+                <p className="card-detail-about-details-text-description" style={{color: finalColor[0]}}>
                   moves
                 </p>
               </div>
@@ -127,10 +127,10 @@ function CardDetails({ statePokemon, handleClose }) {
             <span className="card-detail-about-details-text"></span>
           </div>
           <div className="card-detail-basestats">
-            <p className="card-detail-basestats-title">Base Stats</p>
+            <p className="card-detail-basestats-title" style={{color: finalColor[0]}}>Base Stats</p>
             <div className="card-detail-basestats-list">
               <div className="card-detail-basestats-list-stats">
-                <p className="card-detail-basestats-list-stats-text">HP</p>
+                <p className="card-detail-basestats-list-stats-text" style={{color: finalColor[0]}}>HP</p>
                 <p className="card-detail-basestats-list-stats-stat">
                   {statePokemon.stats[0].base_stat}
                 </p>
@@ -142,7 +142,7 @@ function CardDetails({ statePokemon, handleClose }) {
                 />
               </div>
               <div className="card-detail-basestats-list-stats">
-                <p className="card-detail-basestats-list-stats-text">ATK</p>
+                <p className="card-detail-basestats-list-stats-text" style={{color: finalColor[0]}}>ATK</p>
                 <p className="card-detail-basestats-list-stats-stat">
                   {statePokemon.stats[1].base_stat}
                 </p>
@@ -154,7 +154,7 @@ function CardDetails({ statePokemon, handleClose }) {
                 />
               </div>
               <div className="card-detail-basestats-list-stats">
-                <p className="card-detail-basestats-list-stats-text">DEF</p>
+                <p className="card-detail-basestats-list-stats-text" style={{color: finalColor[0]}}>DEF</p>
                 <p className="card-detail-basestats-list-stats-stat">
                   {statePokemon.stats[2].base_stat}
                 </p>
@@ -166,7 +166,7 @@ function CardDetails({ statePokemon, handleClose }) {
                 />
               </div>
               <div className="card-detail-basestats-list-stats">
-                <p className="card-detail-basestats-list-stats-text">SATK</p>
+                <p className="card-detail-basestats-list-stats-text" style={{color: finalColor[0]}}>SATK</p>
                 <p className="card-detail-basestats-list-stats-stat">
                   {statePokemon.stats[3].base_stat}
                 </p>
@@ -178,7 +178,7 @@ function CardDetails({ statePokemon, handleClose }) {
                 />
               </div>
               <div className="card-detail-basestats-list-stats">
-                <p className="card-detail-basestats-list-stats-text">SDEF</p>
+                <p className="card-detail-basestats-list-stats-text" style={{color: finalColor[0]}}>SDEF</p>
                 <p className="card-detail-basestats-list-stats-stat">
                   {statePokemon.stats[4].base_stat}
                 </p>
@@ -190,7 +190,7 @@ function CardDetails({ statePokemon, handleClose }) {
                 />
               </div>
               <div className="card-detail-basestats-list-stats">
-                <p className="card-detail-basestats-list-stats-text">SPD</p>
+                <p className="card-detail-basestats-list-stats-text" style={{color: finalColor[0]}}>SPD</p>
                 <p className="card-detail-basestats-list-stats-stat">
                   {statePokemon.stats[5].base_stat}
                 </p>

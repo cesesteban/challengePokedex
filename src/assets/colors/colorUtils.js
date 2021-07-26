@@ -1,5 +1,19 @@
-export const colorType = (type1, type2, length) => {
+export const colorType = (types) => {
   // debugger
+  let type1 = "";
+  let type2 = "";
+  let length = 0;
+
+  if (types.length === 2) {
+    type1 = types[0].type.name;
+    type2 = types[1].type.name;
+    length = types.length;
+  } else {
+    type1 = types[0].type.name;
+    type2 = types[0].type.name;
+    length = types.length;
+  }
+
   let color1, color2;
 
   switch (type1) {

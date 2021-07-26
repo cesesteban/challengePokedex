@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import {colorType} from "../../assets/colors/colorUtils"
 import "./Card.css";
 import axios from "axios";
 import CardDetails from "../CardDetails/CardDetails";
@@ -23,6 +24,7 @@ function Card({ name, url }) {
   const classes = useStyles();
   const [statePokemon, setStatePokemon] = useState("");
   const [open, setOpen] = useState(false);
+  const [finalColor, setFinalColor] = useState("");
   const handleClose = () => {
     setOpen(false);
   };
@@ -41,7 +43,7 @@ function Card({ name, url }) {
           return "err";
         });
       setStatePokemon(res);
-      //console.log(res);
+      setFinalColor(colorType(res.types));
     };
     const timer = setTimeout(() => {
       getData(setStatePokemon);
@@ -58,9 +60,9 @@ function Card({ name, url }) {
       statePokemon.types[0] &&
       statePokemon.types[0].type &&
       statePokemon.types[0].type.name ? (
-        <div className="card">
+        <div className="card" style={{borderColor: finalColor[0]}}>
           <div className="card-header">
-            <p className="card-code">
+            <p className="card-code" style={{color: finalColor[0]}}>
               #{String(statePokemon.id).padStart(3, "0")}
             </p>
             <IconButton onClick={handleToggle} className={classes.margin}>
@@ -71,7 +73,7 @@ function Card({ name, url }) {
               />
             </IconButton>
           </div>
-          <div className="card-body">
+          <div className="card-body" style={{backgroundColor: finalColor[0]}}>
             <p className="card-name">{name}</p>
           </div>
         </div>
@@ -91,7 +93,7 @@ function Card({ name, url }) {
         statePokemon.types[0] &&
         statePokemon.types[0].type &&
         statePokemon.types[0].type.name ? (
-          <CardDetails statePokemon={statePokemon} handleClose={handleClose} />
+          <CardDetails finalColor={finalColor} statePokemon={statePokemon} handleClose={handleClose} />
         ) : (
           "loading..."
         )}
