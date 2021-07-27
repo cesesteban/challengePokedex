@@ -1,68 +1,41 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAll } from "../../store/action";
 import Card from "../Card/Card";
 import "./Cards.css";
+import { getSearch } from "../../store/action";
 
 function Cards({ stateSearch }) {
   const dispatch = useDispatch();
+  const [isSearch, setIsSearch] = useState(false);
   const all = useSelector((state) => state.all);
-  const [URL, setURL] = useState("https://pokeapi.co/api/v2/pokemon");
+  const search = useSelector((state) => state.search);
 
   useEffect(() => {
-    dispatch(getAll(URL));
-  }, [URL, dispatch]);
+    dispatch(getSearch(stateSearch));
+    if (stateSearch.length > 0) {
+      setIsSearch(true);
+    } else {
+      setIsSearch(false);
+    }
+  }, [dispatch, stateSearch]);
 
   return (
     <div>
-      {stateSearch === "" ? (
-        <div>
-          <div className="cards-position">
-            {all.results && all.results[0]
-              ? all.results.map((pokemon) => {
-                  return (
-                    <Card
-                      key={pokemon.name}
-                      name={pokemon.name}
-                      url={pokemon.url}
-                    />
-                  );
-                })
-              : "loading..."}
-          </div>
-          <div className="pagination">
-            {all.previous != null ? (
-              <button
-                className="pagination-button"
-                onClick={() => {
-                  setURL(all.previous);
-                }}
-              >
-                -
-              </button>
-            ) : (
-              <button className="pagination-button">-</button>
-            )}
-            {all.next != null ? (
-              <button
-                className="pagination-button"
-                onClick={() => {
-                  setURL(all.next);
-                }}
-              >
-                +
-              </button>
-            ) : (
-              <button className="pagination-button">+</button>
-            )}
-          </div>
+      {isSearch === false ? (
+        <div className="cards-position">
+          {all && all[0]
+            ? all.map((pokemon) => {
+                return <Card key={pokemon.id} pokemon={pokemon} />;
+              })
+            : "Loading..."}
         </div>
       ) : (
-        <div>
-          <Card
-            name={stateSearch}
-            url={`https://pokeapi.co/api/v2/pokemon/${stateSearch}`}
-          />
+        <div className="cards-position">
+          {search.length !== 0
+            ? search.map((pokemon) => {
+                return <Card key={pokemon.id} pokemon={pokemon} />;
+              })
+            : "No date result"}
         </div>
       )}
     </div>

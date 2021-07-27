@@ -1,10 +1,11 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, {useEffect} from "react";
 import logo from "../../assets/img/Pokeball.png";
-import { getAll } from "../../store/action";
 import { makeStyles } from "@material-ui/core/styles";
 import "./NavBar.css";
+import { useDispatch } from "react-redux";
+import { getAll } from "../../store/action";
 import { IconButton } from "@material-ui/core";
+
 const useStyles = makeStyles((theme) => ({
   margin: {
     "&:hover": {
@@ -12,15 +13,21 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-function NavBar(props) {
+
+function NavBar({ URL }) {
   const classes = useStyles();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAll(URL));
+  }, [dispatch, URL]);
+
   return (
     <div className="navbar">
       <img src={logo} className="img" alt="logo" />
       <IconButton
         onClick={() => {
-          dispatch(getAll("https://pokeapi.co/api/v2/pokemon"));
+          
         }}
         className={classes.margin}
       >

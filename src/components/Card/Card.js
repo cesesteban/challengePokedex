@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {colorType} from "../../assets/colors/colorUtils"
 import "./Card.css";
-import axios from "axios";
 import CardDetails from "../CardDetails/CardDetails";
 import Backdrop from "@material-ui/core/Backdrop";
 import { IconButton } from "@material-ui/core";
@@ -20,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "-10px",
   },
 }));
-function Card({ name, url }) {
+function Card({ pokemon }) {
   const classes = useStyles();
   const [statePokemon, setStatePokemon] = useState("");
   const [open, setOpen] = useState(false);
@@ -32,24 +31,10 @@ function Card({ name, url }) {
     setOpen(!open);
   };
 
-  useEffect(() => {
-    const getData = async (setStatePokemon) => {
-      const res = await axios
-        .get(url)
-        .then((res) => {
-          return res.data;
-        })
-        .catch((err) => {
-          return "err";
-        });
-      setStatePokemon(res);
-      setFinalColor(colorType(res.types));
-    };
-    const timer = setTimeout(() => {
-      getData(setStatePokemon);
-    }, 1500);
-    return () => clearTimeout(timer);
-  }, [url]);
+  useEffect(()=>{
+    setStatePokemon(pokemon)
+    setFinalColor(colorType(pokemon.types))
+  },[pokemon])
 
   return (
     <div className="card-style">
@@ -59,7 +44,7 @@ function Card({ name, url }) {
       statePokemon.types &&
       statePokemon.types[0] &&
       statePokemon.types[0].type &&
-      statePokemon.types[0].type.name ? (
+      statePokemon.types[0].type.name  ? (
         <div className="card" style={{borderColor: finalColor[0]}}>
           <div className="card-header">
             <p className="card-code" style={{color: finalColor[0]}}>
@@ -74,7 +59,7 @@ function Card({ name, url }) {
             </IconButton>
           </div>
           <div className="card-body" style={{backgroundColor: finalColor[0]}}>
-            <p className="card-name">{name}</p>
+            <p className="card-name">{statePokemon.name}</p>
           </div>
         </div>
       ) : (
