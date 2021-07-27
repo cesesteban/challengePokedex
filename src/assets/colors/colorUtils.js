@@ -4,7 +4,7 @@ export const colorType = (types) => {
   let type2 = "";
   let length = 0;
 
-  if (types.length === 2) {
+  if(types){if (types.length === 2) {
     type1 = types[0].type.name;
     type2 = types[1].type.name;
     length = types.length;
@@ -12,7 +12,7 @@ export const colorType = (types) => {
     type1 = types[0].type.name;
     type2 = types[0].type.name;
     length = types.length;
-  }
+  }}
 
   let color1, color2;
 

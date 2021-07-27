@@ -47,7 +47,7 @@ function Card({ name, url }) {
     };
     const timer = setTimeout(() => {
       getData(setStatePokemon);
-    }, 500);
+    }, 1500);
     return () => clearTimeout(timer);
   }, [url]);
 
