@@ -22,15 +22,18 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-function CardDetails({ finalColor, statePokemon, handleClose }) {
+function CardDetails({ finalColor, pokemonDetails, id, handleClose }) {
   const classes = useStyles();
   const [imgPosition, setImgPosition] = useState(
-    statePokemon.sprites.front_default
+    `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
   );
   return (
     <div>
       <div className="card-detail">
-        <div className="card-detail-header" style={{backgroundColor: finalColor[0]}}>
+        <div
+          className="card-detail-header"
+          style={{ backgroundColor: finalColor[0] }}
+        >
           <div className="card-detail-title">
             <div className="card-detail-arrowtitle">
               <img
@@ -45,17 +48,19 @@ function CardDetails({ finalColor, statePokemon, handleClose }) {
               >
                 <img src={arrowback} alt="arrowback" />
               </IconButton>
-              <p className="card-detail-name">{statePokemon.name}</p>
+              <p className="card-detail-name">{pokemonDetails.name}</p>
             </div>
             <div>
               <p className="card-detail-code">
-                #{String(statePokemon.id).padStart(3, "0")}
+                #{String(pokemonDetails.id).padStart(3, "0")}
               </p>
             </div>
           </div>
           <div className="img-position">
             <IconButton
-              onClick={() => setImgPosition(statePokemon.sprites.front_default)}
+              onClick={() =>
+                setImgPosition(pokemonDetails.sprites.front_default)
+              }
               className={classes.margin2}
               size="small"
             >
@@ -63,7 +68,9 @@ function CardDetails({ finalColor, statePokemon, handleClose }) {
             </IconButton>
             <img className="card-detail-img" src={imgPosition} alt="img" />
             <IconButton
-              onClick={() => setImgPosition(statePokemon.sprites.back_default)}
+              onClick={() =>
+                setImgPosition(pokemonDetails.sprites.back_default)
+              }
               className={classes.margin2}
               size="small"
             >
@@ -71,18 +78,30 @@ function CardDetails({ finalColor, statePokemon, handleClose }) {
             </IconButton>
           </div>
         </div>
-        <div className="card-detail-body" style={{borderColor: finalColor[0]}}>
+        <div
+          className="card-detail-body"
+          style={{ borderColor: finalColor[0] }}
+        >
           <div className="card-detail-pills-div">
-            {statePokemon.types.map((type) => {
+            {pokemonDetails.types.map((type) => {
               return (
-                <div key={type.type.name} className="card-detail-pill" style={{backgroundColor: finalColor[type.slot-1]}}>
+                <div
+                  key={type.type.name}
+                  className="card-detail-pill"
+                  style={{ backgroundColor: finalColor[type.slot - 1] }}
+                >
                   <p className="card-detail-pill-text">{type.type.name}</p>
                 </div>
               );
             })}
           </div>
           <div className="card-detail-about">
-            <p className="card-detail-about-title" style={{color: finalColor[0]}}>About</p>
+            <p
+              className="card-detail-about-title"
+              style={{ color: finalColor[0] }}
+            >
+              About
+            </p>
             <div className="card-detail-about-details">
               <div className="card-detail-about-details-weight">
                 <div className="card-detail-about-details-weight-detail">
@@ -90,10 +109,10 @@ function CardDetails({ finalColor, statePokemon, handleClose }) {
                     <img className="img-weight" src={weightImg} alt="weight" />
                   </div>
                   <p className="card-detail-about-details-text">
-                    {statePokemon.weight}kg
+                    {pokemonDetails.weight}kg
                   </p>
                 </div>
-                <p className="card-detail-about-details-text-description" style={{color: finalColor[0]}}>
+                <p className="card-detail-about-details-text-description">
                   weight
                 </p>
               </div>
@@ -103,23 +122,23 @@ function CardDetails({ finalColor, statePokemon, handleClose }) {
                     <img className="img-weight" src={heightImg} alt="weight" />
                   </div>
                   <p className="card-detail-about-details-text">
-                    {statePokemon.height}m
+                    {pokemonDetails.height}m
                   </p>
                 </div>
-                <p className="card-detail-about-details-text-description" style={{color: finalColor[0]}}>
+                <p className="card-detail-about-details-text-description">
                   height
                 </p>
               </div>
               <div className="card-detail-about-details-moves">
                 <div className="card-detail-about-details-moves-detail">
                   <p className="card-detail-about-details-moves-text">
-                    {statePokemon.moves[0].move.name}
+                    {pokemonDetails.moves[0].move.name}
                   </p>
                   <p className="card-detail-about-details-moves-text">
-                    {statePokemon.moves[1].move.name}
+                    {pokemonDetails.moves[1].move.name}
                   </p>
                 </div>
-                <p className="card-detail-about-details-text-description" style={{color: finalColor[0]}}>
+                <p className="card-detail-about-details-text-description">
                   moves
                 </p>
               </div>
@@ -127,78 +146,113 @@ function CardDetails({ finalColor, statePokemon, handleClose }) {
             <span className="card-detail-about-details-text"></span>
           </div>
           <div className="card-detail-basestats">
-            <p className="card-detail-basestats-title" style={{color: finalColor[0]}}>Base Stats</p>
+            <p
+              className="card-detail-basestats-title"
+              style={{ color: finalColor[0] }}
+            >
+              Base Stats
+            </p>
             <div className="card-detail-basestats-list">
               <div className="card-detail-basestats-list-stats">
-                <p className="card-detail-basestats-list-stats-text" style={{color: finalColor[0]}}>HP</p>
+                <p
+                  className="card-detail-basestats-list-stats-text"
+                  style={{ color: finalColor[0] }}
+                >
+                  HP
+                </p>
                 <p className="card-detail-basestats-list-stats-stat">
-                  {statePokemon.stats[0].base_stat}
+                  {pokemonDetails.stats[0].base_stat}
                 </p>
                 <meter
                   className="card-detail-basestats-list-stats-meter"
                   min="0"
                   max="250"
-                  value={statePokemon.stats[0].base_stat}
+                  value={pokemonDetails.stats[0].base_stat}
                 />
               </div>
               <div className="card-detail-basestats-list-stats">
-                <p className="card-detail-basestats-list-stats-text" style={{color: finalColor[0]}}>ATK</p>
+                <p
+                  className="card-detail-basestats-list-stats-text"
+                  style={{ color: finalColor[0] }}
+                >
+                  ATK
+                </p>
                 <p className="card-detail-basestats-list-stats-stat">
-                  {statePokemon.stats[1].base_stat}
+                  {pokemonDetails.stats[1].base_stat}
                 </p>
                 <meter
                   className="card-detail-basestats-list-stats-meter"
                   min="0"
                   max="250"
-                  value={statePokemon.stats[1].base_stat}
+                  value={pokemonDetails.stats[1].base_stat}
                 />
               </div>
               <div className="card-detail-basestats-list-stats">
-                <p className="card-detail-basestats-list-stats-text" style={{color: finalColor[0]}}>DEF</p>
+                <p
+                  className="card-detail-basestats-list-stats-text"
+                  style={{ color: finalColor[0] }}
+                >
+                  DEF
+                </p>
                 <p className="card-detail-basestats-list-stats-stat">
-                  {statePokemon.stats[2].base_stat}
+                  {pokemonDetails.stats[2].base_stat}
                 </p>
                 <meter
                   className="card-detail-basestats-list-stats-meter"
                   min="0"
                   max="250"
-                  value={statePokemon.stats[2].base_stat}
+                  value={pokemonDetails.stats[2].base_stat}
                 />
               </div>
               <div className="card-detail-basestats-list-stats">
-                <p className="card-detail-basestats-list-stats-text" style={{color: finalColor[0]}}>SATK</p>
+                <p
+                  className="card-detail-basestats-list-stats-text"
+                  style={{ color: finalColor[0] }}
+                >
+                  SATK
+                </p>
                 <p className="card-detail-basestats-list-stats-stat">
-                  {statePokemon.stats[3].base_stat}
+                  {pokemonDetails.stats[3].base_stat}
                 </p>
                 <meter
                   className="card-detail-basestats-list-stats-meter"
                   min="0"
                   max="250"
-                  value={statePokemon.stats[3].base_stat}
+                  value={pokemonDetails.stats[3].base_stat}
                 />
               </div>
               <div className="card-detail-basestats-list-stats">
-                <p className="card-detail-basestats-list-stats-text" style={{color: finalColor[0]}}>SDEF</p>
+                <p
+                  className="card-detail-basestats-list-stats-text"
+                  style={{ color: finalColor[0] }}
+                >
+                  SDEF
+                </p>
                 <p className="card-detail-basestats-list-stats-stat">
-                  {statePokemon.stats[4].base_stat}
+                  {pokemonDetails.stats[4].base_stat}
                 </p>
                 <meter
                   className="card-detail-basestats-list-stats-meter"
                   min="0"
                   max="250"
-                  value={statePokemon.stats[4].base_stat}
+                  value={pokemonDetails.stats[4].base_stat}
                 />
               </div>
               <div className="card-detail-basestats-list-stats">
-                <p className="card-detail-basestats-list-stats-text" style={{color: finalColor[0]}}>SPD</p>
+                <p
+                  className="card-detail-basestats-list-stats-text"
+                  style={{ color: finalColor[0] }}
+                >
+                  SPD
+                </p>
                 <p className="card-detail-basestats-list-stats-stat">
-                  {statePokemon.stats[5].base_stat}
+                  {pokemonDetails.stats[5].base_stat}
                 </p>
                 <meter
                   className="card-detail-basestats-list-stats-meter"
                   min="0"
                   max="250"
-                  value={statePokemon.stats[5].base_stat}
+                  value={pokemonDetails.stats[5].base_stat}
                 />
               </div>
             </div>

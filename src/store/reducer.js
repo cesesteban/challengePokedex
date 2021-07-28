@@ -1,26 +1,23 @@
-import { GET_ALL, GET_SEARCH } from "./action";
+import { GET_ALL, GET_SEARCH, GET_POKEMON } from "./action";
 
 const initialState = {
   all: [],
+  pokemon: '',
   search: [],
 };
 
 function rootReducer(state = initialState, action) {
   if (action.type === GET_ALL) {
-    // state.all.sort((x1, x2) => {
-    //   if (x1.id < x2.id) {
-    //     return -1;
-    //   } else if (x1.id > x2.id) {
-    //     return 1;
-    //   } else {
-    //     return 0;
-    //   }
-    // });
-      return {
-        ...state,
-        all: action.payload
-      };
-    
+    return {
+      ...state,
+      all: action.payload,
+    };
+  }
+  if (action.type === GET_POKEMON) {
+    return {
+      ...state,
+      pokemon: action.payload,
+    };
   }
 
   if (action.type === GET_SEARCH) {
