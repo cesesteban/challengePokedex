@@ -10,7 +10,7 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <React.Fragment>
-        <Route exact path='/challengePokedex' component={Home} />
+        <Route exact path='/' component={Home} />
       </React.Fragment>
     </BrowserRouter>
   </Provider>,

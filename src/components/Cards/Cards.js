@@ -12,17 +12,12 @@ function Cards({ stateSearch }) {
 
   useEffect(() => {
     dispatch(getSearch(stateSearch));
-    all.sort((x1,x2)=>{
-      if(x1.id<x2.id){return -1}
-      else if(x1.id>x2.id){return 1}
-      else {return 0}
-    })
     if (stateSearch.length > 0) {
       setIsSearch(true);
     } else {
       setIsSearch(false);
     }
-  }, [dispatch, stateSearch, all]);
+  }, [dispatch, stateSearch]);
 
   return (
     <div>
