@@ -22,5 +22,5 @@ export const getAll = (URL) => (dispatch) => {
 };
 
 export const getSearch = (search) => (dispatch) => {
-  dispatch({type: "GET_SEARCH", payload: search})
-}
+  dispatch({ type: "GET_SEARCH", payload: search });
+};
