@@ -19,11 +19,12 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "-10px",
   },
 }));
-function Card({ pokemon }) {
+function Card({ pokemon, id, url }) {
   const classes = useStyles();
-  const [statePokemon, setStatePokemon] = useState("");
+  //const [statePokemon, setStatePokemon] = useState("");
   const [open, setOpen] = useState(false);
-  const [finalColor, setFinalColor] = useState("");
+  //const [finalColor, setFinalColor] = useState("");
+
   const handleClose = () => {
     setOpen(false);
   };
@@ -32,40 +33,40 @@ function Card({ pokemon }) {
   };
 
   useEffect(()=>{
-    setStatePokemon(pokemon)
-    setFinalColor(colorType(pokemon.types))
-  },[pokemon])
+    //setStatePokemon(pokemon)
+    //setFinalColor(colorType(pokemon.types))
+  },[handleToggle])
 
   return (
     <div className="card-style">
-      {statePokemon &&
-      statePokemon.sprites &&
-      statePokemon.sprites.front_default &&
-      statePokemon.types &&
-      statePokemon.types[0] &&
-      statePokemon.types[0].type &&
-      statePokemon.types[0].type.name  ? (
-        <div className="card" style={{borderColor: finalColor[0]}}>
+      {pokemon ? (
+        <div className="card" 
+        //style={{borderColor: finalColor[0]}}
+        >
           <div className="card-header">
-            <p className="card-code" style={{color: finalColor[0]}}>
-              #{String(statePokemon.id).padStart(3, "0")}
+            <p className="card-code" 
+            //style={{color: finalColor[0]}}
+            >
+              #{String(id).padStart(3, "0")}
             </p>
             <IconButton onClick={handleToggle} className={classes.margin}>
               <img
                 className="card-img"
-                src={statePokemon.sprites.front_default}
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
                 alt="img"
               />
             </IconButton>
           </div>
-          <div className="card-body" style={{backgroundColor: finalColor[0]}}>
-            <p className="card-name">{statePokemon.name}</p>
+          <div className="card-body" 
+          //style={{backgroundColor: finalColor[0]}}
+          >
+            <p className="card-name">{pokemon}</p>
           </div>
         </div>
       ) : (
-        <div>{statePokemon === "err" ? "Not Result" : "loading..."}</div>
+        <div>{pokemon === "err" ? "Not Result" : "loading..."}</div>
       )}
-      <Backdrop className={classes.backdrop} open={open}>
+      {/* <Backdrop className={classes.backdrop} open={open}>
         {statePokemon &&
         statePokemon.sprites &&
         statePokemon.sprites.front_default &&
@@ -82,7 +83,7 @@ function Card({ pokemon }) {
         ) : (
           "loading..."
         )}
-      </Backdrop>
+      </Backdrop> */}
     </div>
   );
 }

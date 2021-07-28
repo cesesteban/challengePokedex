@@ -7,24 +7,20 @@ const initialState = {
 
 function rootReducer(state = initialState, action) {
   if (action.type === GET_ALL) {
-    state.all.sort((x1, x2) => {
-      if (x1.id < x2.id) {
-        return -1;
-      } else if (x1.id > x2.id) {
-        return 1;
-      } else {
-        return 0;
-      }
-    });
-    const pokemon = state.all.find(
-      (pokemon) => pokemon.name === action.payload.name
-    );
-    if (!pokemon) {
+    // state.all.sort((x1, x2) => {
+    //   if (x1.id < x2.id) {
+    //     return -1;
+    //   } else if (x1.id > x2.id) {
+    //     return 1;
+    //   } else {
+    //     return 0;
+    //   }
+    // });
       return {
         ...state,
-        all: state.all.concat(action.payload),
+        all: action.payload
       };
-    }
+    
   }
 
   if (action.type === GET_SEARCH) {

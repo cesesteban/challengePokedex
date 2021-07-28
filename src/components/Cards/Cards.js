@@ -25,7 +25,7 @@ function Cards({ stateSearch }) {
         <div className="cards-position">
           {all && all[0]
             ? all.map((pokemon) => {
-                return <Card key={pokemon.id} pokemon={pokemon} />;
+                return <Card key={pokemon.name} pokemon={pokemon.name} url={pokemon.url} id={pokemon.url.substring(34, pokemon.url.length - 1)}/>;
               })
             : "Loading..."}
         </div>
@@ -33,7 +33,7 @@ function Cards({ stateSearch }) {
         <div className="cards-position">
           {search.length !== 0
             ? search.map((pokemon) => {
-                return <Card key={pokemon.id} pokemon={pokemon} />;
+                return <Card key={pokemon.name} pokemon={pokemon.name} url={pokemon.url} id={pokemon.url.substring(34, pokemon.url.length - 1)} />;
               })
             : "No date result"}
         </div>
