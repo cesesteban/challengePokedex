@@ -1,0 +1,14 @@
+.filter-position {
+  display: flex;
+  justify-content: space-around;
+}
+.line {
+  margin-top: 15px;
+  background-color: grey;
+  height: 1px;
+}
+.buttons {
+  font-family: Poppins;
+  font-size: 12px;
+  line-height: 15px;
+}

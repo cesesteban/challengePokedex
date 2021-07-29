@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import logo from "../../assets/img/Pokeball.png";
 import { makeStyles } from "@material-ui/core/styles";
 import "./NavBar.css";
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function NavBar({ URL }) {
+function NavBar({ URL, setURL }) {
   const classes = useStyles();
   const dispatch = useDispatch();
 
@@ -27,7 +27,7 @@ function NavBar({ URL }) {
       <img src={logo} className="img" alt="logo" />
       <IconButton
         onClick={() => {
-          
+          setURL("https://pokeapi.co/api/v2/pokemon?limit=898");
         }}
         className={classes.margin}
       >

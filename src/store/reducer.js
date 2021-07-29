@@ -2,8 +2,9 @@ import { GET_ALL, GET_SEARCH, GET_POKEMON } from "./action";
 
 const initialState = {
   all: [],
-  pokemon: '',
+  pokemon: "",
   search: [],
+  filter: "",
 };
 
 function rootReducer(state = initialState, action) {
@@ -19,7 +20,6 @@ function rootReducer(state = initialState, action) {
       pokemon: action.payload,
     };
   }
-
   if (action.type === GET_SEARCH) {
     const search = [];
     for (let i in state.all) {
@@ -31,8 +31,8 @@ function rootReducer(state = initialState, action) {
       ...state,
       search: search,
     };
+  
   }
-
   return state;
 }
 

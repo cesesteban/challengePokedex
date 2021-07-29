@@ -22,6 +22,10 @@
   -moz-border-radius: 5px;
   border-radius: 5px;
   border: solid 1px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 32px;
 }
 
 .container-1 .icon {
