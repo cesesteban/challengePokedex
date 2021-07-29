@@ -4,7 +4,7 @@ import Card from "../Card/Card";
 import "./Cards.css";
 import { getSearch } from "../../store/action";
 
-function Cards({ stateSearch }) {
+function Cards({ stateSearch,stateFilter }) {
   const dispatch = useDispatch();
   const [isSearch, setIsSearch] = useState(false);
   const all = useSelector((state) => state.all);
@@ -35,7 +35,7 @@ function Cards({ stateSearch }) {
             ? search.map((pokemon) => {
                 return <Card key={pokemon.name} pokemon={pokemon.name} url={pokemon.url} id={pokemon.url.substring(34, pokemon.url.length - 1)} />;
               })
-            : "No date result"}
+            : (stateFilter===false)?("No date result"):("No date result, please check in other region...")}
         </div>
       )}
     </div>

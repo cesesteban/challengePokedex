@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function NavBar({ URL, setURL }) {
+function NavBar({ URL, setURL, setStateFilter }) {
   const classes = useStyles();
   const dispatch = useDispatch();
 
@@ -28,6 +28,7 @@ function NavBar({ URL, setURL }) {
       <IconButton
         onClick={() => {
           setURL("https://pokeapi.co/api/v2/pokemon?limit=898");
+          setStateFilter(false)
         }}
         className={classes.margin}
       >

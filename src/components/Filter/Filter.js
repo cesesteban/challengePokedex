@@ -1,13 +1,14 @@
 import React from "react";
 import "./Filter.css"
 
-function Filter({ setURL }) {
+function Filter({ setURL, setStateFilter }) {
   return (
     <div >
         <div className="filter-position">
       <button className="buttons"
         onClick={() => {
           setURL("https://pokeapi.co/api/v2/pokemon?limit=151&offset=0");
+          setStateFilter(true)
         }}
       >
         Kanto
@@ -15,6 +16,7 @@ function Filter({ setURL }) {
       <button className="buttons"
         onClick={() => {
           setURL("https://pokeapi.co/api/v2/pokemon?limit=100&offset=151");
+          setStateFilter(true)
         }}
       >
         Johto
@@ -22,6 +24,7 @@ function Filter({ setURL }) {
       <button className="buttons"
         onClick={() => {
           setURL("https://pokeapi.co/api/v2/pokemon?limit=135&offset=251");
+          setStateFilter(true)
         }}
       >
         Hoenn
@@ -29,6 +32,7 @@ function Filter({ setURL }) {
       <button className="buttons"
         onClick={() => {
           setURL("https://pokeapi.co/api/v2/pokemon?limit=108&offset=386");
+          setStateFilter(true)
         }}
       >
         Sinnoh
@@ -43,6 +47,7 @@ function Filter({ setURL }) {
       <button className="buttons"
         onClick={() => {
           setURL("https://pokeapi.co/api/v2/pokemon?limit=72&offset=649");
+          setStateFilter(true)
         }}
       >
         Kalos
@@ -50,6 +55,7 @@ function Filter({ setURL }) {
       <button className="buttons"
         onClick={() => {
           setURL("https://pokeapi.co/api/v2/pokemon?limit=88&offset=721");
+          setStateFilter(true)
         }}
       >
         Alola
@@ -57,6 +63,7 @@ function Filter({ setURL }) {
       <button className="buttons"
         onClick={() => {
           setURL("https://pokeapi.co/api/v2/pokemon?limit=89&offset=809");
+          setStateFilter(true)
         }}
       >
         Galar

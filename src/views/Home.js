@@ -6,14 +6,15 @@ import SearchBar from "../components/SearchBar/SearchBar";
 
 function Home(props) {
   const [stateSearch, setStateSearch] = useState("");
+  const [stateFilter, setStateFilter] = useState(false);
   const [URL, setURL] = useState("https://pokeapi.co/api/v2/pokemon?limit=898");
 
   return (
     <div>
-      <NavBar URL={URL} setURL={setURL} />
+      <NavBar setStateFilter={setStateFilter} URL={URL} setURL={setURL} />
       <SearchBar stateSearch={stateSearch} setStateSearch={setStateSearch} />
-      <Filter setURL={setURL} />
-      <Cards stateSearch={stateSearch} />
+      <Filter setStateFilter={setStateFilter} setURL={setURL} />
+      <Cards stateSearch={stateSearch} stateFilter={stateFilter} />
     </div>
   );
 }
