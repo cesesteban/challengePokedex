@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./CardDetails.css";
 import { makeStyles } from "@material-ui/core/styles";
 import arrowback from "../../assets/img/arrowback.png";
@@ -6,6 +6,7 @@ import PokeballCard from "../../assets/img/PokeballCard.png";
 import weightImg from "../../assets/img/weight.png";
 import heightImg from "../../assets/img/height.png";
 import { IconButton } from "@material-ui/core";
+import useOnClickOutside from "../../utils/use-onclick-outside"
 
 const useStyles = makeStyles((theme) => ({
   margin: {
@@ -27,8 +28,11 @@ function CardDetails({ finalColor, pokemonDetails, id, handleClose }) {
   const [imgPosition, setImgPosition] = useState(
     `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
   );
+  const ref = useRef();
+  useOnClickOutside(ref, () => handleClose());
+
   return (
-    <div>
+    <div ref={ref}>
       <div className="card-detail">
         <div
           className="card-detail-header"
