@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/challengePokedex/static/css/main.50c5d424.chunk.css",
-    "main.js": "/challengePokedex/static/js/main.20d6163b.chunk.js",
-    "main.js.map": "/challengePokedex/static/js/main.20d6163b.chunk.js.map",
+    "main.js": "/challengePokedex/static/js/main.99f7512f.chunk.js",
+    "main.js.map": "/challengePokedex/static/js/main.99f7512f.chunk.js.map",
     "runtime-main.js": "/challengePokedex/static/js/runtime-main.431f30cc.js",
     "runtime-main.js.map": "/challengePokedex/static/js/runtime-main.431f30cc.js.map",
     "static/js/2.f240d942.chunk.js": "/challengePokedex/static/js/2.f240d942.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.431f30cc.js",
     "static/js/2.f240d942.chunk.js",
     "static/css/main.50c5d424.chunk.css",
-    "static/js/main.20d6163b.chunk.js"
+    "static/js/main.99f7512f.chunk.js"
   ]
 }
