@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/challengePokedex/static/css/main.f4da3657.chunk.css",
-    "main.js": "/challengePokedex/static/js/main.8f2d9026.chunk.js",
-    "main.js.map": "/challengePokedex/static/js/main.8f2d9026.chunk.js.map",
+    "main.css": "/challengePokedex/static/css/main.50c5d424.chunk.css",
+    "main.js": "/challengePokedex/static/js/main.20d6163b.chunk.js",
+    "main.js.map": "/challengePokedex/static/js/main.20d6163b.chunk.js.map",
     "runtime-main.js": "/challengePokedex/static/js/runtime-main.431f30cc.js",
     "runtime-main.js.map": "/challengePokedex/static/js/runtime-main.431f30cc.js.map",
-    "static/js/2.8357e255.chunk.js": "/challengePokedex/static/js/2.8357e255.chunk.js",
-    "static/js/2.8357e255.chunk.js.map": "/challengePokedex/static/js/2.8357e255.chunk.js.map",
+    "static/js/2.f240d942.chunk.js": "/challengePokedex/static/js/2.f240d942.chunk.js",
+    "static/js/2.f240d942.chunk.js.map": "/challengePokedex/static/js/2.f240d942.chunk.js.map",
     "index.html": "/challengePokedex/index.html",
-    "static/css/main.f4da3657.chunk.css.map": "/challengePokedex/static/css/main.f4da3657.chunk.css.map",
-    "static/js/2.8357e255.chunk.js.LICENSE.txt": "/challengePokedex/static/js/2.8357e255.chunk.js.LICENSE.txt"
+    "static/css/main.50c5d424.chunk.css.map": "/challengePokedex/static/css/main.50c5d424.chunk.css.map",
+    "static/js/2.f240d942.chunk.js.LICENSE.txt": "/challengePokedex/static/js/2.f240d942.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.431f30cc.js",
-    "static/js/2.8357e255.chunk.js",
-    "static/css/main.f4da3657.chunk.css",
-    "static/js/main.8f2d9026.chunk.js"
+    "static/js/2.f240d942.chunk.js",
+    "static/css/main.50c5d424.chunk.css",
+    "static/js/main.20d6163b.chunk.js"
   ]
 }
