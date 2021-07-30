@@ -1,6 +1,7 @@
 .filter-position {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 .line {
   margin-top: 15px;
@@ -11,4 +12,5 @@
   font-family: Poppins;
   font-size: 12px;
   line-height: 15px;
+  margin: 5px
 }
