@@ -86,7 +86,7 @@ function Filter({ setURL, setStateFilter, setStateRegion }) {
           onClick={() => {
             setURL("https://pokeapi.co/api/v2/pokemon?limit=88&offset=721");
             setStateFilter(true);
-            setStateRegion("")
+            setStateRegion("Alola")
           }}
         >
           Alola

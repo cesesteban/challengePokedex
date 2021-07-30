@@ -54,7 +54,7 @@ function Cards({ stateSearch, stateFilter, stateRegion }) {
         break;
       case "Alola":
           setImgState(
-            "https://images.wikidexcdn.net/mwuploads/wikidex/thumb/e/e5/latest/20170819025541/Alola_USUL.png/285px-Alola_USUL.png"
+            "https://images.wikidexcdn.net/mwuploads/wikidex/e/e5/latest/20170819025541/Alola_USUL.png"
           );
         break;
       case "Galar":
@@ -69,7 +69,7 @@ function Cards({ stateSearch, stateFilter, stateRegion }) {
   }, [dispatch, stateSearch, stateRegion]);
 
   return (
-    <div style={{ backgroundImage: `url("${imgState}")` }}>
+    <div style={{ backgroundImage: `url("${imgState}")`, backgroundSize:"cover", backgroundPosition:"center center" }}>
       {isSearch === false ? (
         <div className="cards-position">
           {all && all[0]
