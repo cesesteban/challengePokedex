@@ -18,7 +18,6 @@ function Cards({ stateSearch, stateFilter, stateRegion }) {
     } else {
       setIsSearch(false);
     }
-    console.log(stateRegion)
     switch (stateRegion) {
       case "":
         setImgState("");
